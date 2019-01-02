@@ -29,4 +29,16 @@ class Utils extends Method
 
         return $res;
     }
+
+    public static function resolveScreenName($screenName)
+    {
+        $res = self::requestGet('utils.resolveScreenName', [
+            'screen_name' => $screenName,
+            'access_token' => VK_API_ACCESS_TOKEN,
+            'v' => VK_API_V
+        ]);
+        $res = json_decode($res, true);
+
+        return $res;
+    }
 }

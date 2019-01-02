@@ -39,4 +39,7 @@ switch ($req['type']) {
                 $message = Actions\shortenLink($text[1]);
                 VkApi\Messages::send($message, $peerId);
         }
+
+        echo 'ok';
+        break;
 }

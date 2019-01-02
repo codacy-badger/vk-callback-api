@@ -1,0 +1,9 @@
+{
+  "autoload": {
+    "psr-4": {
+      "vkapi\\": "app/methods",
+      "actions\\": "app/actions"
+    }
+  },
+  "require": {}
+}

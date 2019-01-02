@@ -7,7 +7,11 @@ class Utils extends Method
 {
     public static function checkLink($url)
     {
-        $res = self::requestGet('utils.checkLink', $url);
+        $res = self::requestGet('utils.checkLink', [
+            'url' => $url,
+            'access_token' => VK_API_ACCESS_TOKEN,
+            'v' => VK_API_V
+        ]);
         $res = json_decode($res, true);
 
         return $res;
@@ -15,7 +19,12 @@ class Utils extends Method
 
     public static function getShortLink($url, $private = 0)
     {
-        $res = self::requestGet('utils.getShortLink', [$url, $private]);
+        $res = self::requestGet('utils.getShortLink', [
+            'url' => $url,
+            'private' => $private,
+            'access_token' => VK_API_ACCESS_TOKEN,
+            'v' => VK_API_V
+        ]);
         $res = json_decode($res, true);
 
         return $res;

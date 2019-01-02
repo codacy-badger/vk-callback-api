@@ -32,8 +32,11 @@ switch ($req['type']) {
         $text = explode(" ", $text);
 
         switch ($text[0]) {
-            case 'hello':
+            case '!hello':
                 Actions\sayHello($peerId);
                 break;
+            case '!shorten':
+                $message = Actions\shortenLink($text[1]);
+                VkApi\Messages::send($message, $peerId);
         }
 }

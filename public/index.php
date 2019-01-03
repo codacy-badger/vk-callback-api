@@ -35,12 +35,16 @@ switch ($req['type']) {
             case '!hello':
                 Actions\sayHello($peerId);
                 break;
-            case '!shorten':
+            case '!shorten_link':
                 $message = Actions\shortenLink($text[1]);
                 VkApi\Messages::send($message, $peerId);
                 break;
             case '!delete_chat_photo':
                 Actions\deleteChatPhoto($peerId);
+                break;
+            case '!kick':
+                $userId = $text[1];
+                \Actions\removeChatUser($peerId, $userId);
                 break;
         }
 

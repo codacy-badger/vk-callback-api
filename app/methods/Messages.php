@@ -5,7 +5,7 @@ namespace VkApi;
 
 class Messages extends Method
 {
-    public static function delete($messageIds, $deleteForAll)
+    public static function delete($messageIds, $deleteForAll = 1)
     {
         $res = self::requestGet('messages.delete', [
             'message_ids' => $messageIds,

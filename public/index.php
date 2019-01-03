@@ -38,6 +38,10 @@ switch ($req['type']) {
             case '!shorten':
                 $message = Actions\shortenLink($text[1]);
                 VkApi\Messages::send($message, $peerId);
+                break;
+            case '!delete_chat_photo':
+                Actions\deleteChatPhoto($peerId);
+                break;
         }
 
         echo 'ok';
